@@ -1,0 +1,64 @@
+
+@charset "utf-8";
+
+
+//обёртка колонок одинаковой высоты
+// @include  flex-wrap;  
+@mixin flex-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+   //переходы
+    // @include  transition; 
+@mixin transition($svojstvo: all, $vremya: 0.3s, $funkciya: linear, $zaderzhka: 0s){
+    -webkit-transition: $svojstvo $vremya $funkciya $zaderzhka;
+    -o-transition: $svojstvo $vremya $funkciya $zaderzhka;
+    transition: $svojstvo $vremya $funkciya $zaderzhka;
+}
+
+// @include  clearfix; 
+@mixin clearfix {
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+// @include blok-po-centru;
+// @include blok-po-centru(50%, 50%, -50%, -50%);
+@mixin blok-po-centru($left: 50%, $top: 50%, $translate-x: -50%, $translate-y: -50%){
+    position: absolute;
+    left: $left;
+    top: $top;
+    -ms-transform: translate($translate-x, $translate-y);
+    -webkit-transform: translate($translate-x, $translate-y);  
+    transform: translate($translate-x, $translate-y);  
+}
+
+@mixin mp0 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+// @include box-shadow(0px, 0px, 13px, 2px, rgba(0,0,0,0.21)); 
+@mixin box-shadow($sdvig-x: 1px, $sdvig-y: 1px, $radius: 5px, $razmytie: 1px, $cvet: rgba(0, 0, 0, 0.7)){
+    -ms-box-shadow: $sdvig-x $sdvig-y $radius $razmytie $cvet;
+    -webkit-box-shadow: $sdvig-x $sdvig-y $radius $razmytie $cvet;
+    -o-box-shadow: $sdvig-x $sdvig-y $radius $razmytie $cvet;
+    box-shadow: $sdvig-x $sdvig-y $radius $razmytie $cvet;
+}
+
+@mixin outline($cvet: #f00, $tip: solid, $tolschina: thin){
+    outline: $cvet $tip $tolschina;
+}
+
+
+
+
